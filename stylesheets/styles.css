@@ -846,9 +846,16 @@ nav ul li.tag-h2 + .tag-h1 {
 nav ul a {
   color: #666;
 }
+
+nav ul li a .activate {
+  color: #eee;
+}
+
 nav ul a:hover {
   color: #999;
+  font-weight: bolder;
 }
+
 
 footer {
   width: 180px;
