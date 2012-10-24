@@ -146,10 +146,10 @@ $(document).ready(function () {
             HEIGHT = 300;
 
         // set some camera attributes
-        var VIEW_ANGLE = 15,
-            ASPECT = WIDTH / HEIGHT,
-            NEAR = 0.1,
-            FAR = 10000;
+        var VIEW_ANGLE = 45,
+            ASPECT = WIDTH/HEIGHT,
+            NEAR = 50,
+            FAR = 1000;
 
         // get the DOM element to attach to
         // - assume we've got jQuery to hand
@@ -169,9 +169,9 @@ $(document).ready(function () {
 
         // the camera starts at 0,0,0
         // so pull it back
-        camera.position.x = 10;
+        camera.position.x = 0;
         camera.position.y = 50;
-        camera.position.z = 30;
+        camera.position.z = 200;
 
         // start the renderer
         renderer.setSize(WIDTH, HEIGHT);
@@ -179,20 +179,25 @@ $(document).ready(function () {
         // attach the render-supplied DOM element
         $container.append(renderer.domElement);
 
-        //定义球体
+        // grid
+        var plane = new THREE.Mesh(new THREE.PlaneGeometry(100, 100, 20, 20), new THREE.MeshBasicMaterial({ color:0x555555, wireframe:true }));
+        plane.rotation.x = -Math.PI / 2;
+        scene.add(plane);
+
+        //定义立方体
         var width = 150,
             height = 50,
             depth = 50;
 
-        // 创建一个新的网格球体几何学 -
+        // 创建一个新的网格立方体几何学 -
         // 在下一节我们将要涉及到sphereMaterial
         var geometry = new THREE.CubeGeometry(5, 5, 5);
         var cube = new THREE.Mesh(geometry, sphereMaterial);
 
-        // 添加球体到场景
+        // 添加立方体到场景
         scene.add(cube);
 
-        // 创建一个球体的材质
+        // 创建一个立方体的材质
         var sphereMaterial = new THREE.MeshLambertMaterial({
             color:0xCC0000
         });
