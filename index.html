@@ -1,13 +1,13 @@
 <!doctype html>
 <html>
   <head>
-    <meta charset="utf-8">
+    <meta charset = "utf-8">
     <meta http-equiv="X-UA-Compatible" content="chrome=1">
     <title>装箱助手</title>
     <link rel="stylesheet" href="stylesheets/styles.css">
     <link rel="stylesheet" href="stylesheets/pygment_trac.css">
 
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/1.8.2/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/underscore.js/1.4.2/underscore-min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/backbone.js/0.9.2/backbone-min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r50/three.min.js"></script>
@@ -22,8 +22,8 @@
   <body>
 
       <header>
-        <h1>装箱助手</h1>
-        <p>永远在线，提供在线API</p>
+        <h1>装箱助手demo</h1>
+        <p></p>
       </header>
       
       <div id="banner" style='display:none;'>
@@ -54,8 +54,8 @@
 
       <section>
         <div id='div_step1' style='display:none;'>
-          <h3>选择箱型</h3>         
-            <input type="radio" name="containerType" value="1">
+          <h2>1.选择箱型</h2>
+            <input type="radio" name="containerType" value="1" checked>
               <img src="http://dummyimage.com/120x120/4d494d/686a82.gif&text=placeholder+image" alt="placeholder+image">
               货柜&nbsp;
             </input>
@@ -65,11 +65,11 @@
               厢式货车&nbsp;
             </input>      
             <br/>
-            <input type='button' value='下一步'/>
+            <input type='button' id="step1nextBtn" value='下一步'/>
         </div>
         <div id='div_step2' style='display:none;'>
-          <h3>输入货品</h3>
-          <input type='button' value='上一步'/>
+          <h2>2.输入货品</h2>
+          <input type='button' id="step2preBtn" value='上一步'/>
           <table>
             <thead>
               <tr>
@@ -112,11 +112,11 @@
               </tr>
             </tbody>
           </table>
-          <input type='button' value='下一步'/>
+          <input type='button' id="step2nextBtn" value='下一步'/>
         </div>
         <div id='div_step3' style='display:none;'>
-          <h3>选择托盘</h3>
-          <input type='button' value='上一步'/> 
+          <h2>3.选择托盘</h2>
+          <input type='button' id="step3preBtn" value='上一步'/>
           <br/>
           <input type="radio" name="needPallet" value="1">
             <img src="http://packer.searates.com/images/container/container_packing_box.jpg" alt="placeholder+image">
@@ -128,11 +128,11 @@
               需要托盘&nbsp;
             </input>
             <br/>
-          <input type='button' value='下一步'/>
+          <input type='button' id="step3nextBtn" value='下一步'/>
         </div>
         <div id='div_step4' style='display:none;'>
-          <h3>装箱参数</h3>
-          <input type='button' value='上一步'/> 
+          <h2>4.装箱参数</h2>
+          <input type='button' id="step4preBtn" value='上一步'/>
           <br/>
           <input type="checkbox" name="isOverlap" value="1">
             <img src="http://packer.searates.com/images/container/container_packing_box.jpg" alt="placeholder+image">
@@ -144,11 +144,11 @@
             高<input type="text" name="completeCheckCircs" value="0">
             最大装载重量<input type="text" name="completeCheckCircs" value="0">
             <br/>
-          <input type='button' value='下一步'/>
+          <input type='button' id="step4nextBtn" value='下一步'/>
         </div>
         <div id='div_step5' style='display:none;'>
-          <h2>装箱结果</h2>
-          <input type='button' value='上一步'/> 
+          <h2>5.装箱结果</h2>
+          <input type='button' id="step5preBtn" value='上一步'/>
           <br/>
           <div id='container'></div>
           
