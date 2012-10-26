@@ -148,7 +148,7 @@ $(document).ready(function () {
         $('#orderJson').val(JSON.stringify(order));
 
         var orderJson = GetQueryString("orderJson");
-        if(orderJson.length>0){
+        if(orderJson && orderJson.length>0){
             hideAllTabs();
             showStepDiv('div_step5');
         }
