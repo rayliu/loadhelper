@@ -1,3 +1,6 @@
+//unit test file
+//ray liu   20121026
+
 var buildModel = function(){
     var order = new LH.Order();
     order.set({orderNo: '100000001', loadType: 'container', containerSize:20, containerType:'GP'});
