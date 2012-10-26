@@ -34,6 +34,9 @@ var sectionHeight = function () {
 
 $(window).resize(sectionHeight);
 
+
+this.LH={};
+
 $(document).ready(function () {
     //--------------------navigate action-------------
     $('nav ul li a').click(function () {
@@ -87,8 +90,9 @@ $(document).ready(function () {
     });
 
     //--------------------define Model-----------------
-    var Order = Backbone.Model.extend({
+    LH.Order = Backbone.Model.extend({
         defaults:{
+            orderNo: '',
             loadType:'container',
             containerSize:20,
             containerType:'GP',
@@ -101,28 +105,26 @@ $(document).ready(function () {
         }
     });
 
-    var Cargo = Backbone.Model.extend({
+
+
+
+    LH.Cargo = Backbone.Model.extend({
         defaults:{
-            name:'',
+            cargoName:'',
             length:0,
             width:0,
             height:0,
             weight:0,
             qty:0,
             color:'auto'
-        },
-        validate:function (attrs) {
-            if (1) { //attrs.end < attrs.start
-                return "can't end before it starts";
-            }
         }
     });
 
-    var Cargoes = Backbone.Collection.extend({
-        model:Cargo
-    });
+//    LH.Cargoes = Backbone.Collection.extend({
+//        model: LH.Cargo
+//    });
 
-    window.order = new Order();
+    var order = new LH.Order();
 
     //
     order.on("error", function (model, error) {
