@@ -66,6 +66,11 @@
             </input>      
             <br/>
             <input type='button' id="step1nextBtn" value='下一步'/>
+
+            <form id="orderForm" action=""  method="get">
+                <input type="text" id="orderJson" name="orderJson" value="{name:'test'}">
+                <input type='submit' id="submitBtn" value='submit'/>
+            </form>
         </div>
         <div id='div_step2' style='display:none;'>
           <h2>2.输入货品</h2>
@@ -144,7 +149,7 @@
             高<input type="text" name="completeCheckCircs" value="0">
             最大装载重量<input type="text" name="completeCheckCircs" value="0">
             <br/>
-          <input type='button' id="step4nextBtn" value='下一步'/>
+          <input type='button' id="step4nextBtn" value='计算结果'/>
         </div>
         <div id='div_step5' style='display:none;'>
           <h2>5.装箱结果</h2>

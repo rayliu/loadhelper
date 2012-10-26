@@ -1,3 +1,10 @@
+function GetQueryString(name)
+{
+    var reg = new RegExp("(^|&)"+ name +"=([^&]*)(&|$)");
+    var r = window.location.search.substr(1).match(reg);
+    if (r!=null) return unescape(r[2]); return null;
+}
+
 fixScale = function (doc) {
 
     var addEvent = 'addEventListener',
@@ -137,7 +144,14 @@ $(document).ready(function () {
         order.set({
             loadType:'truck'
         });
-        //alert(JSON.stringify(order));
+
+        $('#orderJson').val(JSON.stringify(order));
+
+        var orderJson = GetQueryString("orderJson");
+        if(orderJson.length>0){
+            hideAllTabs();
+            showStepDiv('div_step5');
+        }
     };
 
     init();
