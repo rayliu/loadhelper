@@ -45,6 +45,7 @@ $(window).resize(sectionHeight);
 this.LH={};
 
 $(document).ready(function () {
+
     //--------------------navigate action-------------
     $('nav ul li a').click(function () {
         hideAllTabs();
@@ -62,6 +63,19 @@ $(document).ready(function () {
     var showStepDiv = function (divId) {
         $('#' + divId).show();
     };
+
+    $('#addCargoBtn').click(function () {
+        var cargoRowTpl = $('#cargoRowTpl').html();
+        var data={cargoName:'demo', length:100, width:200, height:30, weight:30, qty:20, color:'auto'};
+
+        var html = Mustache.to_html( cargoRowTpl, data );
+        $('#cargoList').append('<tr>'+html+'</tr>');
+
+        //bind the new event for el
+        $('#cargoList tr td a.delete').click(function(){
+            $(this).parent().parent().remove();
+        });
+    });
 
     $('#step1nextBtn').click(function () {
         hideAllTabs();
