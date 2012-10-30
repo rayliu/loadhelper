@@ -23,8 +23,8 @@
   <body>
 
       <header>
-        <h1>装箱助手demo</h1>
-        <p></p>
+        <h1>装箱助手</h1>
+        <p>集装箱，货车装箱量计算（外贸必备）</p>
       </header>
       
       <div id="banner" style='display:none;'>
@@ -91,15 +91,14 @@
             </thead>
             <tbody id="cargoList">
              <tr id="cargoRowTpl" style="display: none;">
-                 <td><a class="delete" href="javascript: void(0);" title="删除"> X</a>
-                     <a class="edit" href="javascript: void(0);"  title="编辑"> E</a></td>
-                 <td>{{cargoName}}</td>
-                 <td>{{length}}</td>
-                 <td>{{width}}</td>
-                 <td>{{height}}</td>
-                 <td>{{weight}}</td>
-                 <td>{{qty}}</td>
-                 <td>{{color}}</td>
+                 <td><a class="delete" href="javascript: void(0);" title="删除"> X</a></td>
+                 <td><input type='text'  value='{{cargoName}}' size="14"/></td>
+                 <td><input type='text'  value='{{length}}' size="5"/></td>
+                 <td><input type='text'  value='{{width}}' size="5"/></td>
+                 <td><input type='text'  value='{{height}}' size="5"/></td>
+                 <td><input type='text'  value='{{weight}}' size="5"/></td>
+                 <td><input type='text'  value='{{qty}}' size="5"/></td>
+                 <td><input type='text'  value='{{color}}' size="5"/></td>
              </tr>
             </tbody>
           </table>
