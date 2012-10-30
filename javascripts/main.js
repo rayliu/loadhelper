@@ -42,7 +42,6 @@ var sectionHeight = function () {
 $(window).resize(sectionHeight);
 
 
-this.LH={};
 
 $(document).ready(function () {
 
@@ -110,40 +109,7 @@ $(document).ready(function () {
         showStepDiv('div_step4');
     });
 
-    //--------------------define Model-----------------
-    LH.Order = Backbone.Model.extend({
-        defaults:{
-            orderNo: '',
-            loadType:'container',
-            containerSize:20,
-            containerType:'GP',
-            truckSizeType:'1.5T'
-        },
-        validate:function (attrs) {
-            if (false) { //attrs.end < attrs.start
-                return "can't set value " + attrs.loadType;
-            }
-        }
-    });
 
-
-
-
-    LH.Cargo = Backbone.Model.extend({
-        defaults:{
-            cargoName:'',
-            length:0,
-            width:0,
-            height:0,
-            weight:0,
-            qty:0,
-            color:'auto'
-        }
-    });
-
-//    LH.Cargoes = Backbone.Collection.extend({
-//        model: LH.Cargo
-//    });
 
     var order = new LH.Order();
 
@@ -158,6 +124,8 @@ $(document).ready(function () {
         order.set({
             loadType:'truck'
         });
+
+        order.getAlongLengthAmount();
 
         $('#orderJson').val(JSON.stringify(order));
 

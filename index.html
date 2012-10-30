@@ -12,6 +12,7 @@
     <script src="http://cdnjs.cloudflare.com/ajax/libs/underscore.js/1.4.2/underscore-min.js"></script>
     <script src="http://cdnjs.cloudflare.com/ajax/libs/backbone.js/0.9.2/backbone-min.js"></script>
     <script src="http://cdnjs.cloudflare.com/ajax/libs/three.js/r50/three.min.js"></script>
+      <script src="javascripts/loadhelper.js"></script>
     <script src="javascripts/main.js"></script>
 
     <!--[if lt IE 9]>
@@ -57,18 +58,34 @@
         <div id='div_step1' style='display:none;'>
           <h2>1.选择箱型</h2>
             <input type="radio" name="containerType" value="1" checked>
-              <img src="http://dummyimage.com/120x120/4d494d/686a82.gif&text=placeholder+image" alt="placeholder+image">
+              <!--img src="http://dummyimage.com/120x120/4d494d/686a82.gif&text=placeholder+image" alt="placeholder+image"-->
               货柜&nbsp;
+                <select>
+                    <option value="20尺柜">20尺柜</option>
+                    <option value="40尺柜">40尺柜</option>
+                    <option value="40尺高柜">40尺高柜</option>
+                    <option value="45尺高柜">45尺高柜</option>
+                    <option value="20尺开顶柜">20尺开顶柜</option>
+                    <option value="40尺开顶柜">40尺开顶柜</option>
+                    <option value="20尺平底柜">20尺平底柜</option>
+                    <option value="40尺平底柜">40尺平底柜</option>
+                </select>
             </input>
             <br/>
             <input type="radio" name="containerType" value="0">
-              <img src="http://dummyimage.com/120x120/4d494d/686a82.gif&text=placeholder+image" alt="placeholder+image">
+              <!--img src="http://dummyimage.com/120x120/4d494d/686a82.gif&text=placeholder+image" alt="placeholder+image"-->
               厢式货车&nbsp;
+                <select>
+                    <option value="">-----选择货车类型-----</option>
+                    <option value="20尺柜">东风小霸王厢式货车-0.9吨/4立方米</option>
+                    <option value="40尺柜">东风小霸王厢式货车（加长形）-0.9T/5立方米</option>
+                </select>
             </input>      
             <br/>
             <input type='button' id="step1nextBtn" value='下一步'/>
+            <a href="#" style="float: right;">  缺少类型?</a>
 
-            <form id="orderForm" action=""  method="get">
+            <form id="orderForm" action=""  method="get" style="display: none;">
                 <input type="text" id="orderJson" name="orderJson" value="{name:'test'}">
                 <input type='submit' id="submitBtn" value='submit'/>
             </form>
@@ -81,10 +98,10 @@
               <tr>
                 <th></th>
                 <th>货品名称</th>
-                <th>长</th>
-                <th>宽</th>
-                <th>高</th>
-                <th>重量</th>
+                <th>长cm</th>
+                <th>宽cm</th>
+                <th>高cm</th>
+                <th>重量kg</th>
                 <th>数量</th>
                 <th>颜色</th>
               </tr>
