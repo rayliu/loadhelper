@@ -109,6 +109,26 @@ $(document).ready(function () {
         showStepDiv('div_step4');
     });
 
+    $('#step2calcBtn').click(function () {
+        order.set("containerTypeSize", $('#containerTypeSize').val());
+
+        var length, width, height, weight;
+        length = $('#cargoRow1>td:eq(0)>input').val();
+        width = $('#cargoRow1>td:eq(1)>input ').val();
+        height = $('#cargoRow1>td:eq(2)>input ').val();
+        weight = $('#cargoRow1>td:eq(3)>input ').val();
+
+        var cargo = new LH.Cargo({length:length, width:width, height:height, weight:weight});
+        var cargoes = new Backbone.Collection();
+        cargoes.add(cargo);
+        order.set('cargoes', cargoes);
+
+        var alongLengthAmount = order.getAlongLengthAmount();
+        var alongWidthAmount = order.getAlongWidthAmount();
+        var alongHeightAmount = order.getAlongHeightAmount();
+
+        alert('顺装：'+alongLengthAmount+', 侧装：'+alongWidthAmount+', 竖装：'+alongHeightAmount);
+    });
 
 
     var order = new LH.Order();
@@ -121,19 +141,15 @@ $(document).ready(function () {
     var init = function () {
         $('#div_step1').show();
 
-        order.set({
-            loadType:'truck'
-        });
+        
 
-        order.getAlongLengthAmount();
+        // $('#orderJson').val(JSON.stringify(order));
 
-        $('#orderJson').val(JSON.stringify(order));
-
-        var orderJson = GetQueryString("orderJson");
-        if(orderJson && orderJson.length>0){
-            hideAllTabs();
-            showStepDiv('div_step5');
-        }
+        // var orderJson = GetQueryString("orderJson");
+        // if(orderJson && orderJson.length>0){
+        //     hideAllTabs();
+        //     showStepDiv('div_step5');
+        // }
     };
 
     init();
