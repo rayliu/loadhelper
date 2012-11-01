@@ -11,8 +11,8 @@
     <script src="http://cdnjs.cloudflare.com/ajax/libs/jquery/1.8.2/jquery.min.js"></script>
     <script src="http://cdnjs.cloudflare.com/ajax/libs/underscore.js/1.4.2/underscore-min.js"></script>
     <script src="http://cdnjs.cloudflare.com/ajax/libs/backbone.js/0.9.2/backbone-min.js"></script>
-    <script src="http://cdnjs.cloudflare.com/ajax/libs/three.js/r50/three.min.js"></script>
-      <script src="javascripts/loadhelper.js"></script>
+    <!--script src="http://cdnjs.cloudflare.com/ajax/libs/three.js/r50/three.min.js"></script-->
+    <script src="javascripts/loadhelper.js"></script>
     <script src="javascripts/main.js"></script>
 
     <!--[if lt IE 9]>
@@ -44,7 +44,7 @@
       </div><!-- end banner -->
 
     <div class="wrapper">
-      <nav>
+      <!--nav>
         <ul>
           <li><a href='#' id='step1'>1.选择箱型</a></li>
           <li><a href='#' id='step2'>2.输入货品</a></li>
@@ -52,17 +52,19 @@
           <li><a href='#' id='step4'>4.装箱参数</a></li>
           <li><a href='#' id='step5'>5.装箱结果</a></li>
         </ul>
-      </nav>
+      </nav-->
 
       <section>
         <div id='div_step1' style='display:none;'>
           <h2>1.选择箱型</h2>
-            <input type="radio" name="containerType" value="1" checked>
-              <img src="http://packer.searates.com/images/container/pack_container.jpg" alt="集装箱">
+            <div>
+              <img src="http://packer.searates.com/images/container/pack_container.jpg" width='160px' height ='120px' alt="集装箱"><br/>
+              <input type="radio" name="containerType" value="1" checked>
+              
               货柜&nbsp;
-                <select>
-                    <option value="20尺柜">20尺柜</option>
-                    <option value="40尺柜">40尺柜</option>
+                <select id='containerTypeSize'>
+                    <option value="GP20">20尺柜</option>
+                    <option value="GP40">40尺柜</option>
                     <option value="40尺高柜">40尺高柜</option>
                     <option value="45尺高柜">45尺高柜</option>
                     <option value="20尺开顶柜">20尺开顶柜</option>
@@ -71,17 +73,23 @@
                     <option value="40尺平底柜">40尺平底柜</option>
                 </select>
             </input>
+            </div>
+            
             &nbsp;&nbsp;&nbsp;&nbsp;
-            <input type="radio" name="containerType" value="0">
-              <img src="http://packer.searates.com/images/container/pack_car.jpg" alt="厢型货车">
-              厢式货车&nbsp;
-                <select>
-                    <option value="">-----选择货车类型-----</option>
-                    <option value="20尺柜">东风小霸王厢式货车-0.9吨/4立方米</option>
-                    <option value="40尺柜">东风小霸王厢式货车（加长形）-0.9T/5立方米</option>
-                </select>
-            </input>      
-            <br/>
+            <div>
+              <img src="http://packer.searates.com/images/container/pack_car.jpg" width='160px' height ='120px'alt="厢型货车">
+              <br/>
+              <input type="radio" name="containerType" value="0">
+                
+                厢式货车&nbsp;
+                  <select>
+                      <option value="">-----选择货车类型-----</option>
+                      <option value="20尺柜">东风小霸王厢式货车-0.9吨/4立方米</option>
+                      <option value="40尺柜">东风小霸王厢式货车（加长形）-0.9T/5立方米</option>
+                  </select>
+              </input> 
+            </div>     
+            <br/><br/>
             <input type='button' id="step1nextBtn" value='下一步'/>
             <a href="#" style="float: right;">  缺少类型?</a>
 
@@ -91,19 +99,21 @@
             </form>
         </div>
         <div id='div_step2' style='display:none;'>
-          <h2>2.输入货品</h2>
-          <input type='button' id="step2preBtn" value='上一步'/>
+          <h2>2.输入货品规格</h2>
+
+          <input type='button' id="step2preBtn" value='上一步'/><br/>
+          <img src="http://packer.searates.com/images/container/box.jpg">
           <table>
             <thead>
               <tr>
-                <th></th>
-                <th>货品名称</th>
+                <!--th></th>
+                <th>货品名称</th-->
                 <th>长cm</th>
                 <th>宽cm</th>
                 <th>高cm</th>
                 <th>重量kg</th>
-                <th>数量</th>
-                <th>颜色</th>
+                <!--th>数量</th-->
+                <!--th>颜色</th-->
               </tr>
             </thead>
             <tbody id="cargoList">
@@ -117,10 +127,17 @@
                  <td><input type='text'  value='{{qty}}' size="5"/></td>
                  <td><input type='text'  value='{{color}}' size="5"/></td>
              </tr>
+             <tr id="cargoRow1">                 
+                 <td><input type='text'  value='100' size="10"/></td>
+                 <td><input type='text'  value='50' size="10"/></td>
+                 <td><input type='text'  value='30' size="10"/></td>
+                 <td><input type='text'  value='20' size="10"/></td>
+             </tr>
             </tbody>
           </table>
-            <input type='button' id="addCargoBtn" value='添加货品'/>
-            <input type='button' id="step2nextBtn" value='下一步'/>
+            <!--input type='button' id="addCargoBtn" value='添加货品'/-->
+            <!--input type='button' id="step2nextBtn" value='下一步'/-->
+            <input type='button' id="step2calcBtn" value='计算结果'/>
         </div>
         <div id='div_step3' style='display:none;'>
           <h2>3.选择托盘</h2>
