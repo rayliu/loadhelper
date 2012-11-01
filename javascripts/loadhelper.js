@@ -16,7 +16,7 @@ var LH = LH || { REVISION: '1' };
     };
 
     LH.GP40 = {
-        length: 11800,
+        length: 1180,
         width: 213,
         height: 218,
         maxWeight: 22000,
@@ -24,7 +24,7 @@ var LH = LH || { REVISION: '1' };
     };
 
     LH.HQ40 = {
-        length: 11800,
+        length: 1180,
         width: 213,
         height: 272,
         maxWeight: 22000,
@@ -32,7 +32,7 @@ var LH = LH || { REVISION: '1' };
     };
 
     LH.HQ45 = {
-        length: 13580,
+        length: 1358,
         width: 234,
         height: 271,
         maxWeight: 29000,
@@ -148,6 +148,8 @@ var LH = LH || { REVISION: '1' };
             switch (order.containerTypeSize){
                 case 'GP20':
                     return LH.GP20;
+                case 'GP40':
+                    return LH.GP40;    
                 default:
                     return null;
             }
