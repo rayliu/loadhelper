@@ -127,7 +127,11 @@ $(document).ready(function () {
         var alongWidthAmount = order.getAlongWidthAmount();
         var alongHeightAmount = order.getAlongHeightAmount();
 
-        alert('顺装：'+alongLengthAmount+', 侧装：'+alongWidthAmount+', 竖装：'+alongHeightAmount);
+        //alert('顺装：'+alongLengthAmount+', 侧装：'+alongWidthAmount+', 竖装：'+alongHeightAmount);
+        $('#alongLengthAmount').text(alongLengthAmount);
+        $('#alongWidthAmount').text(alongWidthAmount);
+        $('#result').show();
+
     });
 
 
