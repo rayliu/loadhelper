@@ -57,6 +57,7 @@ $(document).ready(function () {
             $('#div_step' + i).hide();
             $('#div_step' + i).removeClass('activate');
         }
+        $('#result').hide();
     };
 
     var showStepDiv = function (divId) {
